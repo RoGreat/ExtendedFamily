@@ -2,7 +2,7 @@
 
 	<!-- Extended Family -->
   <PropertyGroup>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
 		<GameVersion>1.5.7</GameVersion>
     <TargetFramework>net472</TargetFramework>
     <Platforms>x64</Platforms>
@@ -19,6 +19,7 @@
     <!--Unix-->
     <GameFolder Condition="$(GameFolder) == '' AND $(OS) == 'Unix'">~/.steam/root/steamapps/common/Mount &amp; Blade II Bannerlord</GameFolder>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Authors>RoGreat</Authors>
   </PropertyGroup>
 
 	<!-- Bannerlord Assemblies -->

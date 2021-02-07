@@ -46,15 +46,17 @@ namespace ExtendedFamily.Patches
             _related = false;
 
             // Parents
-            if (_baseHero.Father == _queriedHero)
+            if (_baseHero.Father == _queriedHero || _baseHero.Mother == _queriedHero)
             {
-                RelatedToParent(_baseHero.Father, _queriedHero);
                 _related = true;
             }
-            if (_baseHero.Mother == _queriedHero)
+            if (_baseHero.Father is not null)
+            {
+                RelatedToParent(_baseHero.Father, _queriedHero);
+            }
+            if (_baseHero.Mother is not null)
             {
                 RelatedToParent(_baseHero.Mother, _queriedHero);
-                _related = true;
             }
 
             // Siblings
