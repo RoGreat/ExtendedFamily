@@ -6,7 +6,9 @@ namespace ExtendedFamily.Extension
     {
         public static Hero FindAncestorOf(Hero hero)
         {
-            // Added in kingdom ruler's precedence in the cases of showing Rhagaea's bloodline if she so happened to marry someone of lower birth
+            // Added in kingdom ruler's precedence by popular demand over just showing partilineal order. 
+            // For example, it will show Rhagaea's bloodline if she so happened to marry someone of lower birth.
+            // There are no houses in Bannerlord, only clans so this is the best I can do.
             if (hero.Father is not null && hero.Father == hero.Father?.MapFaction.Leader)
             {
                 return FindAncestorOf(hero.Father);

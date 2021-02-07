@@ -46,17 +46,15 @@ namespace ExtendedFamily.Patches
             _related = false;
 
             // Parents
-            if (_baseHero.Father == _queriedHero || _baseHero.Mother == _queriedHero)
-            {
-                _related = true;
-            }
-            if (_baseHero.Father is not null)
+            if (_baseHero.Father == _queriedHero)
             {
                 RelatedToParent(_baseHero.Father, _queriedHero);
+                _related = true;
             }
-            if (_baseHero.Mother is not null)
+            if (_baseHero.Mother == _queriedHero)
             {
                 RelatedToParent(_baseHero.Mother, _queriedHero);
+                _related = true;
             }
 
             // Siblings
@@ -99,6 +97,7 @@ namespace ExtendedFamily.Patches
             // Step-related
             if (!_related)
             {
+                // Put in-laws here so they don't conflict with actual blood relatives
                 if (_baseHero.Siblings.Any((Hero sibling) => sibling.Spouse == _queriedHero))
                 {
                     AddList(_queriedHero.IsFemale ? "str_sisterinlaw" : "str_brotherinlaw");
@@ -269,58 +268,59 @@ namespace ExtendedFamily.Patches
         // Step relatives
         private static void StepRelatedToParent(Hero baseHeroStepParent, Hero queriedHero, Hero baseHero)
         {
-            if (baseHeroStepParent is not null)
+            if (baseHeroStepParent is null)
             {
-                if (baseHeroStepParent.Siblings.Contains(queriedHero))
+                return;
+            }
+            if (baseHeroStepParent.Siblings.Contains(queriedHero))
+            {
+                AddList(queriedHero.IsFemale ? "str_stepaunt" : "str_stepuncle");
+            }
+            if (baseHeroStepParent.Siblings.Any((Hero auntuncle) => auntuncle.Children.Contains(queriedHero)))
+            {
+                AddList("str_stepcousin");
+            }
+            if (baseHeroStepParent.Father == queriedHero)
+            {
+                AddList("str_stepgrandfather");
+            }
+            if (baseHeroStepParent.Father is not null)
+            {
+                if (baseHeroStepParent.Father.Father == queriedHero)
                 {
-                    AddList(queriedHero.IsFemale ? "str_stepaunt" : "str_stepuncle");
+                    AddList("str_stepgreatgrandfather");
                 }
-                if (baseHeroStepParent.Siblings.Any((Hero auntuncle) => auntuncle.Children.Contains(queriedHero)))
+                if (baseHeroStepParent.Father.Mother == queriedHero)
                 {
-                    AddList("str_stepcousin");
+                    AddList("str_stepgreatgrandmother");
                 }
-                if (baseHeroStepParent.Father == queriedHero)
+            }
+            if (baseHeroStepParent.Mother == queriedHero)
+            {
+                AddList("str_stepgrandmother");
+            }
+            if (baseHeroStepParent.Mother is not null)
+            {
+                if (baseHeroStepParent.Mother.Father == queriedHero)
                 {
-                    AddList("str_stepgrandfather");
+                    AddList("str_stepgreatgrandfather");
                 }
-                if (baseHeroStepParent.Father is not null)
+                if (baseHeroStepParent.Mother.Mother == queriedHero)
                 {
-                    if (baseHeroStepParent.Father.Father == queriedHero)
-                    {
-                        AddList("str_stepgreatgrandfather");
-                    }
-                    if (baseHeroStepParent.Father.Mother == queriedHero)
-                    {
-                        AddList("str_stepgreatgrandmother");
-                    }
+                    AddList("str_stepgreatgrandmother");
                 }
-                if (baseHeroStepParent.Mother == queriedHero)
-                {
-                    AddList("str_stepgrandmother");
-                }
-                if (baseHeroStepParent.Mother is not null)
-                {
-                    if (baseHeroStepParent.Mother.Father == queriedHero)
-                    {
-                        AddList("str_stepgreatgrandfather");
-                    }
-                    if (baseHeroStepParent.Mother.Mother == queriedHero)
-                    {
-                        AddList("str_stepgreatgrandmother");
-                    }
-                }
-                if (baseHeroStepParent == queriedHero)
-                {
-                    AddList(queriedHero.IsFemale ? "str_stepmother" : "str_stepfather");
-                }
-                if (baseHeroStepParent.Children.Contains(queriedHero) && !baseHero.Siblings.Contains(queriedHero))
-                {
-                    AddList(queriedHero.IsFemale ? "str_stepsister" : "str_stepbrother");
-                }
-                if (baseHeroStepParent.Children.Any((Hero stepsibling) => stepsibling.Children.Contains(queriedHero)))
-                {
-                    AddList(queriedHero.IsFemale ? "str_stepniece" : "str_stepnephew");
-                }
+            }
+            if (baseHeroStepParent == queriedHero)
+            {
+                AddList(queriedHero.IsFemale ? "str_stepmother" : "str_stepfather");
+            }
+            if (baseHeroStepParent.Children.Contains(queriedHero) && !baseHero.Siblings.Contains(queriedHero))
+            {
+                AddList(queriedHero.IsFemale ? "str_stepsister" : "str_stepbrother");
+            }
+            if (baseHeroStepParent.Children.Any((Hero stepsibling) => stepsibling.Children.Contains(queriedHero)))
+            {
+                AddList(queriedHero.IsFemale ? "str_stepniece" : "str_stepnephew");
             }
         }
 
