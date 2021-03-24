@@ -40,6 +40,8 @@
 		<string id="str_granddaughter" text="{=granddaughter}Granddaughter" />
 		<string id="str_greatgranddaughter" text="{=greatgranddaughter}Great- granddaughter" />
 		<string id="str_greatgrandson" text="{=greatgrandson}Great-grandson" />
+		<string id="str_stepgranddaughter" text="{=stepgranddaughter}Step granddaughter" />
+		<string id="str_stepgrandson" text="{=stepgrandson}Step grandson" />
 		<string id="str_stepgreatgranddaughter" text="{=stepgreatgranddaughter}Step great- granddaughter" />
 		<string id="str_stepgreatgrandson" text="{=stepgreatgrandson}Step great-grandson" />
 		<string id="str_soninlaw" text="{=soninlaw}Son-in-law" />

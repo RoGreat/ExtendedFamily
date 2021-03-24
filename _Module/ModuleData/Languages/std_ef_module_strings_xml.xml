@@ -37,6 +37,8 @@
 		<string id="stepcousin" text="Stepcousin" />
 		<string id="stepgrandfather" text="Step grandfather" />
 		<string id="stepgrandmother" text="Step grandmother" />
+		<string id="stepgranddaughter" text="Step granddaughter" />
+		<string id="stepgrandson" text="Step grandson" />
 		<string id="stepgreatgrandfather" text="Step great- grandfather" />
 		<string id="stepgreatgrandmother" text="Step great- grandmother" />
 		<string id="grandson" text="Grandson" />
