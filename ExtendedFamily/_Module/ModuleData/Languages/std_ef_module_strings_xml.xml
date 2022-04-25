@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English" />
+  </tags>
+  <strings>
+		<!-- Extended Family Strings -->
+		<string id="sister" text="Sister" />
+    <string id="brother" text="Brother" />
+		<string id="son" text="Son" />
+		<string id="daughter" text="Daughter" />
+		<string id="stepson" text="Stepson" />
+		<string id="stepdaughter" text="Stepdaughter" />
+		<string id="husband" text="Husband" />
+		<string id="wife" text="Wife" />
+		<string id="ex_husband" text="Ex-husband" />
+		<string id="ex_wife" text="Ex-wife" />
+		<string id="stepbrother" text="Stepbrother" />
+		<string id="stepsister" text="Stepsister" />
+		<string id="stepfather" text="Stepfather" />
+		<string id="stepmother" text="Stepmother" />
+		<string id="halfbrother" text="Half brother" />
+		<string id="halfsister" text="Half sister" />
+		<string id="sibling" text="Sibling" />
+		<string id="aunt" text="Aunt" />
+		<string id="uncle" text="Uncle" />
+		<string id="niece" text="Niece" />
+		<string id="nephew" text="Nephew" />
+		<string id="cousin" text="Cousin" />
+		<string id="grandfather" text="Grandfather" />
+		<string id="grandmother" text="Grandmother" />
+		<string id="greatgrandfather" text="Great- grandfather" />
+		<string id="greatgrandmother" text="Great- grandmother" />
+		<string id="stepsibling" text="Stepsibling" />
+		<string id="stepaunt" text="Stepaunt" />
+		<string id="stepuncle" text="Stepuncle" />
+		<string id="stepniece" text="Stepniece" />
+		<string id="stepnephew" text="Stepnephew" />
+		<string id="stepcousin" text="Stepcousin" />
+		<string id="stepgrandfather" text="Step grandfather" />
+		<string id="stepgrandmother" text="Step grandmother" />
+		<string id="stepgranddaughter" text="Step granddaughter" />
+		<string id="stepgrandson" text="Step grandson" />
+		<string id="stepgreatgrandfather" text="Step great- grandfather" />
+		<string id="stepgreatgrandmother" text="Step great- grandmother" />
+		<string id="grandson" text="Grandson" />
+		<string id="granddaughter" text="Granddaughter" />
+		<string id="greatgranddaughter" text="Great- granddaughter" />
+		<string id="greatgrandson" text="Great-grandson" />
+		<string id="stepgreatgranddaughter" text="Step great- granddaughter" />
+		<string id="stepgreatgrandson" text="Step great-grandson" />
+		<string id="soninlaw" text="Son-in-law" />
+		<string id="daughterinlaw" text="Daughter-in-law" />
+		<string id="ex_soninlaw" text="Former son-in-law" />
+		<string id="ex_daughterinlaw" text="Former daughter-in-law" />
+		<string id="wife_ex_husband" text="Wife's ex-husband" />
+		<string id="husband_ex_wife" text="Husband's ex-wife" />
+		<string id="ex_soninlaw" text="Former son-in-law" />
+		<string id="ex_sisterinlaw" text="Former sister-in-law" />
+		<string id="sisterinlaw" text="Sister-in-law" />
+		<string id="brotherinlaw" text="Brother-in-law" />
+		<string id="ex_sisterinlaw" text="Former sister-in-law" />
+		<string id="ex_brotherinlaw" text="Former brother-in-law" />
+		<string id="ex_husband_wife" text="Ex-husband's wife" />
+		<string id="ex_wife_husband" text="Ex-wife's husband" />
+		<string id="ex_husband_ex_wife" text="Ex-husband's ex-wife" />
+		<string id="ex_wife_ex_husband" text="Ex-wife's ex-husband" />
+		
+		<!-- Fixed Bannerlord Strings -->
+		<string id="new_husband_fatherinlaw" text="Father-in-law" />
+		<string id="new_husband_motherinlaw" text="Mother-in-law" />
+		<string id="new_wife_fatherinlaw" text="Father-in-law" />
+		<string id="new_wife_motherinlaw" text="Mother-in-law" />
+  </strings>
+</base>

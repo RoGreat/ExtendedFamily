@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Bannerlord": {
+      "commandName": "Executable",
+      "executablePath": "$(GameFolder)\\bin\\Win64_Shipping_Client\\Bannerlord.exe",
+      "commandLineArgs": "/singleplayer _MODULES_*Bannerlord.Harmony*Bannerlord.UIExtenderEx*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*$(ModuleName)*_MODULES_",
+      "workingDirectory": "$(GameFolder)\\bin\\Win64_Shipping_Client"
+    },
+    "FamilyDeluxe": {
+      "commandName": "Executable",
+      "executablePath": "$(GameFolder)\\bin\\Win64_Shipping_Client\\Bannerlord.exe",
+      "commandLineArgs": "/singleplayer _MODULES_*Bannerlord.Harmony*Bannerlord.UIExtenderEx*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*$(ModuleName)*FamilyTree*_MODULES_",
+      "workingDirectory": "$(GameFolder)\\bin\\Win64_Shipping_Client"
+    }
+  }
+}

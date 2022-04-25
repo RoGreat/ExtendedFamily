@@ -1,0 +1,9 @@
+<GridWidget Id="FamilyGrid" DataSource="{Family}" ScaledSuggestedHeight="100" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" SuggestedWidth="350" SuggestedHeight="350" DefaultCellWidth="100" DefaultCellHeight="150" HorizontalAlignment="Left" ColumnCount="7" MarginTop="50" MarginLeft="20">
+	<ItemTemplate>
+		<EncyclopediaSubPageElement>
+			<Children>
+				<TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="@Role" PositionYOffset="-65" Brush="Encyclopedia.SubPage.Element.Name.Text"/>
+			</Children>
+		</EncyclopediaSubPageElement>
+	</ItemTemplate>
+</GridWidget>

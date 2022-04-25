@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <strings>
+		<!-- Extended Family Strings -->
+		<string id="str_sister" text="{=sister}Sister" />
+    <string id="str_brother" text="{=brother}Brother" />
+		<string id="str_son" text="{=son}Son" />
+		<string id="str_daughter" text="{=daughter}Daughter" />
+		<string id="str_stepson" text="{=stepson}Stepson" />
+		<string id="str_stepdaughter" text="{=stepdaughter}Stepdaughter" />
+		<string id="str_husband" text="{=husband}Husband" />
+		<string id="str_wife" text="{=wife}Wife" />
+		<string id="str_ex_husband" text="{=exhusband}Ex-husband" />
+		<string id="str_ex_wife" text="{=exwife}Ex-wife" />
+		<string id="str_stepbrother" text="{=stepbrother}Stepbrother" />
+		<string id="str_stepsister" text="{=stepsister}Stepsister" />
+		<string id="str_stepfather" text="{=stepfather}Stepfather" />
+		<string id="str_stepmother" text="{=stepmother}Stepmother" />
+		<string id="str_halfbrother" text="{=halfbrother}Half brother" />
+		<string id="str_halfsister" text="{=halfsister}Half sister" />
+		<string id="str_sibling" text="{=sibling}Sibling" />
+		<string id="str_aunt" text="{=aunt}Aunt" />
+		<string id="str_uncle" text="{=uncle}Uncle" />
+		<string id="str_niece" text="{=niece}Niece" />
+		<string id="str_nephew" text="{=nephew}Nephew" />
+		<string id="str_cousin" text="{=cousin}Cousin" />
+		<string id="str_grandfather" text="{=grandfather}Grandfather" />
+		<string id="str_grandmother" text="{=grandmother}Grandmother" />
+		<string id="str_greatgrandfather" text="{=greatgrandfather}Great- grandfather" />
+		<string id="str_greatgrandmother" text="{=greatgrandmother}Great- grandmother" />
+		<string id="str_stepsibling" text="{=stepsibling}Stepsibling" />
+		<string id="str_stepaunt" text="{=stepaunt}Stepaunt" />
+		<string id="str_stepuncle" text="{=stepuncle}Stepuncle" />
+		<string id="str_stepniece" text="{=stepniece}Stepniece" />
+		<string id="str_stepnephew" text="{=stepnephew}Stepnephew" />
+		<string id="str_stepcousin" text="{=stepcousin}Stepcousin" />
+		<string id="str_stepgrandfather" text="{=stepgrandfather}Step grandfather" />
+		<string id="str_stepgrandmother" text="{=stepgrandmother}Step grandmother" />
+		<string id="str_stepgreatgrandfather" text="{=stepgreatgrandfather}Step great- grandfather" />
+		<string id="str_stepgreatgrandmother" text="{=stepgreatgrandmother}Step great- grandmother" />
+		<string id="str_grandson" text="{=grandson}Grandson" />
+		<string id="str_granddaughter" text="{=granddaughter}Granddaughter" />
+		<string id="str_greatgranddaughter" text="{=greatgranddaughter}Great- granddaughter" />
+		<string id="str_greatgrandson" text="{=greatgrandson}Great-grandson" />
+		<string id="str_stepgranddaughter" text="{=stepgranddaughter}Step granddaughter" />
+		<string id="str_stepgrandson" text="{=stepgrandson}Step grandson" />
+		<string id="str_stepgreatgranddaughter" text="{=stepgreatgranddaughter}Step great- granddaughter" />
+		<string id="str_stepgreatgrandson" text="{=stepgreatgrandson}Step great-grandson" />
+		<string id="str_soninlaw" text="{=soninlaw}Son-in-law" />
+		<string id="str_daughterinlaw" text="{=daughterinlaw}Daughter-in-law" />
+		<string id="str_ex_soninlaw" text="{=exsoninlaw}Former son-in-law" />
+		<string id="str_ex_daughterinlaw" text="{=exdaughterinlaw}Former daughter-in-law" />
+		<string id="str_wife_ex_husband" text="{=wifeexhusband}Wife's ex-husband" />
+		<string id="str_husband_ex_wife" text="{=husbandexwife}Husband's ex-wife" />
+		<string id="str_ex_soninlaw" text="{=exsoninlaw}Former son-in-law" />
+		<string id="str_ex_sisterinlaw" text="{=exsisterinlaw}Former sister-in-law" />
+		<string id="str_sisterinlaw" text="{=sisterinlaw}Sister-in-law" />
+		<string id="str_brotherinlaw" text="{=brotherinlaw}Brother-in-law" />
+		<string id="str_ex_sisterinlaw" text="{=exsisterinlaw}Former sister-in-law" />
+		<string id="str_ex_brotherinlaw" text="{=exbrotherinlaw}Former brother-in-law" />
+		<string id="str_ex_husband_wife" text="{=exhusbandwife}Ex-husband's wife" />
+		<string id="str_ex_wife_husband" text="{=exwifehusband}Ex-wife's husband" />
+		<string id="str_ex_husband_ex_wife" text="{=exhusbandexwife}Ex-husband's ex-wife" />
+		<string id="str_ex_wife_ex_husband" text="{=exwifeexhusband}Ex-wife's ex-husband" />
+		
+		<!-- Fixed Bannerlord Strings -->
+		<string id="str_new_husband_fatherinlaw" text="{=newhusbandfatherinlaw}Father-in-law" />
+		<string id="str_new_husband_motherinlaw" text="{=newhusbandmotherinlaw}Mother-in-law" />
+		<string id="str_new_wife_fatherinlaw" text="{=newwifefatherinlaw}Father-in-law" />
+		<string id="str_new_wife_motherinlaw" text="{=newwifemotherinlaw}Mother-in-law" />
+  </strings>
+</base>
