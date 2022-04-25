@@ -12,7 +12,7 @@ namespace ExtendedFamily.Patches
     {
         private static bool _sameHero;
 
-        private static Hero baseHero;
+        private static Hero _baseHero;
 
         private static List<Hero> _list;
 
@@ -20,12 +20,12 @@ namespace ExtendedFamily.Patches
 
         private static void Prefix(Hero ____hero, ref IEnumerable<Hero> __state)
         {
-            if (baseHero == ____hero)
+            if (_baseHero == ____hero)
             {
                 _sameHero = true;
                 return;
             }
-            baseHero = ____hero;
+            _baseHero = ____hero;
             _sameHero = false;
 
             __state = _allRelatedHeroes();
@@ -49,7 +49,7 @@ namespace ExtendedFamily.Patches
             _list = new List<Hero>();
 
             // Father
-            Hero father = baseHero.Father;
+            Hero father = _baseHero.Father;
             if (father is not null)
             {
                 RelatedTo(father, "father");             // Grandfather
@@ -81,7 +81,7 @@ namespace ExtendedFamily.Patches
             }
 
             // Mother
-            Hero mother = baseHero.Mother;
+            Hero mother = _baseHero.Mother;
             if (mother is not null)
             {
                 RelatedTo(mother, "father");              // Grandfather
@@ -113,7 +113,7 @@ namespace ExtendedFamily.Patches
             }
 
             // Spouse
-            Hero spouse = baseHero.Spouse;
+            Hero spouse = _baseHero.Spouse;
             if (spouse is not null)
             {
                 RelatedTo(spouse, "father");      // Father-in-law
@@ -135,7 +135,7 @@ namespace ExtendedFamily.Patches
             }
 
             // Sibling
-            foreach (Hero sibling in baseHero.Siblings)
+            foreach (Hero sibling in _baseHero.Siblings)
             {
                 // Your nieces and nephews
                 RelatedTo(sibling, "children");                  // Nieces and nephews
@@ -150,7 +150,7 @@ namespace ExtendedFamily.Patches
             }
 
             // Children
-            foreach (Hero child in baseHero.Children)
+            foreach (Hero child in _baseHero.Children)
             {
                 RelatedTo(child, "children");                // Grandchildren
                 foreach (Hero child2 in child.Children)
@@ -169,7 +169,7 @@ namespace ExtendedFamily.Patches
             }
 
             // Ex-spouses
-            foreach (Hero exSpouse in baseHero.ExSpouses)
+            foreach (Hero exSpouse in _baseHero.ExSpouses)
             {
                 RelatedTo(exSpouse, "exspouses");     // Ex-spouse's ex-spouses
                 RelatedTo(exSpouse, "children");      // Ex-spouse's children
@@ -248,7 +248,7 @@ namespace ExtendedFamily.Patches
             {
                 // I have no idea if this works as intended...
                 // If your stepparent is alive during your birth, then care about stepparent's lineage
-                if (baseHero.BirthDay < stepParent.DeathDay)
+                if (_baseHero.BirthDay < stepParent.DeathDay)
                 {
                     // Step siblings
                     foreach (Hero stepParentSpouse in stepParent.ExSpouses)
@@ -303,7 +303,7 @@ namespace ExtendedFamily.Patches
                 foreach (Hero stepChild in spouse.Children)
                 {
                     // If you are alive when a stepchild was birthed, then care about stepchild's lineage
-                    if (baseHero.DeathDay > stepChild.BirthDay)
+                    if (_baseHero.DeathDay > stepChild.BirthDay)
                     {
                         AddList(stepChild);
 
@@ -330,7 +330,7 @@ namespace ExtendedFamily.Patches
         {
             if (queriedHero is not null)
             {
-                if (queriedHero != baseHero)
+                if (queriedHero != _baseHero)
                 {
                     yield return queriedHero;
                 }
