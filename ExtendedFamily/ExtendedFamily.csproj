@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.2.3</Version>
-		<GameVersion>1.7</GameVersion>
+    <Version>1.2.4</Version>
+		<GameVersion>1.8</GameVersion>
     <TargetFramework>net472</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>10.0</LangVersion>
