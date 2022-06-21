@@ -4,17 +4,17 @@
     <tag language="English" />
   </tags>
   <strings>
-		<!-- Extended Family Strings -->
 		<string id="sister" text="Sister" />
-    <string id="brother" text="Brother" />
+		<string id="brother" text="Brother" />
+		<string id="twin" text="Twin" />
 		<string id="son" text="Son" />
 		<string id="daughter" text="Daughter" />
 		<string id="stepson" text="Stepson" />
 		<string id="stepdaughter" text="Stepdaughter" />
 		<string id="husband" text="Husband" />
 		<string id="wife" text="Wife" />
-		<string id="ex_husband" text="Ex-husband" />
-		<string id="ex_wife" text="Ex-wife" />
+		<string id="exhusband" text="Ex-husband" />
+		<string id="exwife" text="Ex-wife" />
 		<string id="stepbrother" text="Stepbrother" />
 		<string id="stepsister" text="Stepsister" />
 		<string id="stepfather" text="Stepfather" />
@@ -26,50 +26,59 @@
 		<string id="uncle" text="Uncle" />
 		<string id="niece" text="Niece" />
 		<string id="nephew" text="Nephew" />
+		<string id="nieceinlaw" text="Niece-in-law" />
+		<string id="nephewinlaw" text="Nephew-in-law" />
+		<string id="exnieceinlaw" text="Former Niece-in-law" />
+		<string id="exnephewinlaw" text="Former Nephew-in-law" />
 		<string id="cousin" text="Cousin" />
 		<string id="grandfather" text="Grandfather" />
 		<string id="grandmother" text="Grandmother" />
+		<string id="grandfatherinlaw" text="Grandfather- in-law" />
+		<string id="grandmotherinlaw" text="Grandmother- in-law" />
 		<string id="greatgrandfather" text="Great- grandfather" />
 		<string id="greatgrandmother" text="Great- grandmother" />
 		<string id="stepsibling" text="Stepsibling" />
 		<string id="stepaunt" text="Stepaunt" />
 		<string id="stepuncle" text="Stepuncle" />
+		<string id="auntinlaw" text="Aunt-in-law" />
+		<string id="uncleinlaw" text="Uncle-in-law" />
 		<string id="stepniece" text="Stepniece" />
 		<string id="stepnephew" text="Stepnephew" />
 		<string id="stepcousin" text="Stepcousin" />
 		<string id="stepgrandfather" text="Step grandfather" />
 		<string id="stepgrandmother" text="Step grandmother" />
-		<string id="stepgranddaughter" text="Step granddaughter" />
-		<string id="stepgrandson" text="Step grandson" />
 		<string id="stepgreatgrandfather" text="Step great- grandfather" />
 		<string id="stepgreatgrandmother" text="Step great- grandmother" />
 		<string id="grandson" text="Grandson" />
 		<string id="granddaughter" text="Granddaughter" />
+		<string id="grandsoninlaw" text="Grandson- in-law" />
+		<string id="granddaughterinlaw" text="Granddaughter- in-law" />
+		<string id="exgrandsoninlaw" text="Former Grandson- in-law" />
+		<string id="exgranddaughterinlaw" text="Former Granddaughter- in-law" />
 		<string id="greatgranddaughter" text="Great- granddaughter" />
 		<string id="greatgrandson" text="Great-grandson" />
+		<string id="stepgranddaughter" text="Step granddaughter" />
+		<string id="stepgrandson" text="Step grandson" />
 		<string id="stepgreatgranddaughter" text="Step great- granddaughter" />
 		<string id="stepgreatgrandson" text="Step great-grandson" />
 		<string id="soninlaw" text="Son-in-law" />
 		<string id="daughterinlaw" text="Daughter-in-law" />
-		<string id="ex_soninlaw" text="Former son-in-law" />
-		<string id="ex_daughterinlaw" text="Former daughter-in-law" />
-		<string id="wife_ex_husband" text="Wife's ex-husband" />
-		<string id="husband_ex_wife" text="Husband's ex-wife" />
-		<string id="ex_soninlaw" text="Former son-in-law" />
-		<string id="ex_sisterinlaw" text="Former sister-in-law" />
+		<string id="wifeexhusband" text="Wife's ex-husband" />
+		<string id="husbandexwife" text="Husband's ex-wife" />
+		<string id="exsisterinlaw" text="Former sister-in-law" />
+		<string id="exsoninlaw" text="Former son-in-law" />
+		<string id="exdaughterinlaw" text="Former daughter-in-law" />
 		<string id="sisterinlaw" text="Sister-in-law" />
 		<string id="brotherinlaw" text="Brother-in-law" />
-		<string id="ex_sisterinlaw" text="Former sister-in-law" />
-		<string id="ex_brotherinlaw" text="Former brother-in-law" />
-		<string id="ex_husband_wife" text="Ex-husband's wife" />
-		<string id="ex_wife_husband" text="Ex-wife's husband" />
-		<string id="ex_husband_ex_wife" text="Ex-husband's ex-wife" />
-		<string id="ex_wife_ex_husband" text="Ex-wife's ex-husband" />
-		
-		<!-- Fixed Bannerlord Strings -->
-		<string id="new_husband_fatherinlaw" text="Father-in-law" />
-		<string id="new_husband_motherinlaw" text="Mother-in-law" />
-		<string id="new_wife_fatherinlaw" text="Father-in-law" />
-		<string id="new_wife_motherinlaw" text="Mother-in-law" />
+		<string id="exbrotherinlaw" text="Former brother-in-law" />
+		<string id="exhusbandwife" text="Ex-husband's wife" />
+		<string id="exwifehusband" text="Ex-wife's husband" />
+		<string id="exhusbandexwife" text="Ex-husband's ex-wife" />
+		<string id="exwifeexhusband" text="Ex-wife's ex-husband" />
+		<string id="fatherinlaw" text="Father-in-law" />
+		<string id="motherinlaw" text="Mother-in-law" />
+		<string id="exfatherinlaw" text="Former Father-in-law" />
+		<string id="exmotherinlaw" text="Former Mother-in-law" />
+		<string id="relative" text="Relative" />
   </strings>
 </base>
