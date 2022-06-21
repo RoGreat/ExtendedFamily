@@ -53,6 +53,9 @@ namespace ExtendedFamily.Patches
 
         // Notes: Am getting great uncles and cousins and am I not sure why
         // They are getting confused with step uncles and cousins
+
+        // Notes: steprelatives can only be determined if children
+        // are from different spouses. Unable to ascertain here.
         private static List<Hero> _allRelatedHeroes()
         {
             _list = new List<Hero>();
@@ -60,78 +63,88 @@ namespace ExtendedFamily.Patches
             List<Hero> hero = new() { _baseHero };
             // Trace.WriteLine("Hero: " + hero.First().Name);
 
-            var siblings = RelatedTo(hero, Relation.Sibling).ToList();
-            RelatedTo(siblings, Relation.Child).ToList();                                       // Nieces/nephews
+            var siblings = Dedupe(RelatedTo(hero, Relation.Sibling));
+            Dedupe(RelatedTo(siblings, Relation.Child));            // Nieces/nephews 
+            Dedupe(RelatedTo(siblings, Relation.Spouse));           // Sibling-in-law
 
-            var parents = RelatedTo(hero, Relation.Parent).ToList();
-            var auntsUncles = RelatedTo(parents, Relation.Sibling).ToList();                    // Aunts/uncles
+            var parents = Dedupe(RelatedTo(hero, Relation.Parent));
 
-            RelatedTo(auntsUncles, Relation.Child).ToList();                                    // Cousins
+            var auntsUncles = Dedupe(RelatedTo(parents, Relation.Sibling));
+            Dedupe(RelatedTo(auntsUncles, Relation.Child));         // Cousins
 
-            var grandParents = RelatedTo(parents, Relation.Parent).ToList();
-            var greatGrandParents = RelatedTo(grandParents, Relation.Parent).ToList();
+            var grandParents = Dedupe(RelatedTo(parents, Relation.Parent));
+            Dedupe(RelatedTo(grandParents, Relation.Spouse));       // Other grandparent
 
-            RelatedTo(grandParents, Relation.Spouse, true).ToList();                            // Step grandparents
-            RelatedTo(greatGrandParents, Relation.Spouse, true).ToList();                       // Step great-grandparents
+            var greatGrandParents = Dedupe(RelatedTo(grandParents, Relation.Parent));
+            Dedupe(RelatedTo(greatGrandParents, Relation.Spouse));  // Other great-GP
 
-            var stepParents = RelatedTo(parents, Relation.Spouse, true).ToList();               // Stepparents
-            var stepAuntsUncles = RelatedTo(stepParents, Relation.Sibling, true).ToList();      // Stepaunts/uncles
+            var otherParents = Dedupe(RelatedTo(parents, Relation.Spouse));
+            Dedupe(RelatedTo(otherParents, Relation.Child));        // Other child
 
-            RelatedTo(stepParents, Relation.Child, true).ToList();                              // Stepsiblings
-            RelatedTo(stepAuntsUncles, Relation.Child, true).ToList();                          // Stepcousins
+            // Goes into great-uncle/second-cousins
+            // var otherAuntsUncles = Dedupe(RelatedTo(otherParents, Relation.Sibling));
+            // Dedupe(RelatedTo(otherAuntsUncles, Relation.Child)); // Other cousin
 
-            var children = RelatedTo(hero, Relation.Child).ToList();
-            var grandChildren = RelatedTo(children, Relation.Child).ToList();
-            var greatGrandChildren = RelatedTo(grandChildren, Relation.Child).ToList();
+            var otherGrandparent = Dedupe(RelatedTo(otherParents, Relation.Parent));
+            Dedupe(RelatedTo(otherGrandparent, Relation.Parent));   // Other GGP
 
-            RelatedTo(grandChildren, Relation.Spouse, true).ToList();                           // Step grandchildren
-            RelatedTo(greatGrandChildren, Relation.Spouse, true).ToList();                      // Step great-grandchildren
+            var children = Dedupe(RelatedTo(hero, Relation.Child));
+            var grandChildren = Dedupe(RelatedTo(children, Relation.Child));
+            Dedupe(RelatedTo(grandChildren, Relation.Spouse));      // GC-in-law
+            Dedupe(RelatedTo(grandChildren, Relation.Child));       // GGC
 
-            var spouses = RelatedTo(hero, Relation.Spouse).ToList();
+            var spouses = Dedupe(RelatedTo(hero, Relation.Spouse));
+            Dedupe(RelatedTo(spouses, Relation.Parent));            // Parent-in-law
+            Dedupe(RelatedTo(spouses, Relation.Sibling));           // Sibling-in-law
+            Dedupe(RelatedTo(spouses, Relation.Child));             // Child-in-law
 
-            RelatedTo(spouses, Relation.Parent).ToList();                                       // Father/mother-in-law
-            RelatedTo(spouses, Relation.Sibling).ToList();                                      // Brother/sister-in-law 
-            RelatedTo(spouses, Relation.Child).ToList();                                        // Son/daughter-in-law 
+            var otherChildren = Dedupe(RelatedTo(spouses, Relation.Child));
+            Dedupe(RelatedTo(otherChildren, Relation.Child));
 
-            var stepChildren = RelatedTo(spouses, Relation.Child, true).ToList();               // Stepchildren
-
-            RelatedTo(stepChildren, Relation.Child, true).ToList();                             // Stepnieces/nephews
-
-            _list = _list.Distinct().ToList();
+            _list = Dedupe(_list);
             return _list;
         }
 
-        private static IEnumerable<Hero> RelatedTo(List<Hero> heroes, Relation relation, bool stepRelated = false)
+        private static List<Hero> Dedupe(IEnumerable<Hero> heroes)
+        {
+            return heroes.Distinct().ToList();
+        }
+
+        private static IEnumerable<Hero> RelatedTo(List<Hero> heroes, Relation relation)
         {
             foreach (Hero queriedHero in heroes)
             {
-                // Trace.WriteLine("RelatedTo: " + queriedHero.Name);
+                // Trace.WriteLine("Hero: " + queriedHero.Name);
                 switch (relation)
                 {
                     case Relation.Spouse:
                         var spouse = queriedHero.Spouse;
                         if (spouse is not null)
                         {
-                            AddList(spouse, stepRelated);
+                            // Trace.WriteLine("   Spouse: " + spouse.Name);
+                            AddList(spouse);
                             yield return spouse;
                         }
                         foreach (Hero exSpouse in queriedHero.ExSpouses)
                         {
-                            AddList(exSpouse, stepRelated);
+                            // Trace.WriteLine("   exSpouse: " + exSpouse.Name);
+                            AddList(exSpouse);
                             yield return exSpouse;
                         }
                         break;
                     case Relation.Child:
                         foreach (Hero child in queriedHero.Children)
                         {
-                            AddList(child, stepRelated);
+                            // Trace.WriteLine("   Child: " + child.Name);
+                            AddList(child);
                             yield return child;
                         }
                         break;
                     case Relation.Sibling:
                         foreach (Hero sibling in queriedHero.Siblings)
                         {
-                            AddList(sibling, stepRelated);
+                            // Trace.WriteLine("   Sibling: " + sibling.Name);
+                            AddList(sibling);
                             yield return sibling;
                         }
                         break;
@@ -140,12 +153,14 @@ namespace ExtendedFamily.Patches
                         var mother = queriedHero.Mother;
                         if (father is not null)
                         {
-                            AddList(father, stepRelated);
+                            // Trace.WriteLine("   Father: " + father.Name);
+                            AddList(father);
                             yield return father;
                         }
                         if (mother is not null)
                         {
-                            AddList(mother, stepRelated);
+                            // Trace.WriteLine("   Mother: " + mother.Name);
+                            AddList(mother);
                             yield return mother;
                         }
                         break;
@@ -155,20 +170,9 @@ namespace ExtendedFamily.Patches
             }
         }
 
-        private static void AddList(Hero queriedHero, bool stepRelated)
+        private static void AddList(Hero queriedHero)
         {
-            if (stepRelated)
-            {
-                // Character sees steprelative as long as they were born before they died
-                if (_baseHero.BirthDay < queriedHero.DeathDay)
-                {
-                    _list.AddRange(BaseHeroCheck(queriedHero));
-                }
-            }
-            else
-            {
-                _list.AddRange(BaseHeroCheck(queriedHero));
-            }
+            _list.AddRange(BaseHeroCheck(queriedHero));
         }
 
         private static IEnumerable<Hero> BaseHeroCheck(Hero queriedHero)
