@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
   <strings>
 		<string id="str_sister" text="{=sister}Sister" />
     <string id="str_brother" text="{=brother}Brother" />
@@ -78,4 +77,3 @@
 		<string id="str_ex_motherinlaw" text="{=exmotherinlaw}Former Mother-in-law" />
 		<string id="str_relative" text="{=relative}Relative" />
   </strings>
-</base>

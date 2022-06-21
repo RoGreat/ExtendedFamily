@@ -35,4 +35,10 @@
 			<Tags />
 		</SubModule>
 	</SubModules>
+	
+	<Xmls>
+		<XmlNode>
+			<XmlName id="GameText" path="ef_module_strings"/>
+		</XmlNode>
+	</Xmls>
 </Module>

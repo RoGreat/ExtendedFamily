@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Conversation;
 using TaleWorlds.CampaignSystem.Extensions;
-using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace ExtendedFamily.Patches
 {
     // Give familial titles to people
-    [HarmonyPatch(typeof(CampaignUIHelper), "GetHeroRelationToHeroTextShort")]
+    [HarmonyPatch(typeof(ConversationHelper), "GetHeroRelationToHeroTextShort")]
     internal class GetHeroRelationToHeroTextShortPatch
     {
         private static List<string> _list;
 
-        private static bool Prefix(ref TextObject __result, Hero queriedHero, Hero baseHero)
+        private static bool Prefix(ref string __result, Hero queriedHero, Hero baseHero, bool uppercaseFirst)
         {
             _list = new List<string>();
             bool related = false;
@@ -57,7 +58,7 @@ namespace ExtendedFamily.Patches
                 related = AddList(queriedHero.IsFemale ? "str_greatgranddaughter" : "str_greatgrandson");
             }
             else
-            {   
+            {
                 // Parents
                 if (baseHero.Father == queriedHero)
                 {
@@ -275,11 +276,26 @@ namespace ExtendedFamily.Patches
             TextObject textObject = new(result, null);
 
             // Adapted from original method
-            if (queriedHero != null)
+            if (textObject == null)
+            {
+                Debug.FailedAssert("GENERIC - UNSPECIFIED RELATION in clan", "C:\\Develop\\mb3\\Source\\Bannerlord\\TaleWorlds.CampaignSystem\\Conversation\\ConversationHelper.cs", "GetHeroRelationToHeroTextShort", 275);
+                textObject = GameTexts.FindText("str_relative_of_player", null);
+            }
+            else if (queriedHero != null)
             {
                 textObject.SetCharacterProperties("NPC", queriedHero.CharacterObject, false);
             }
-            __result = textObject;
+            string text = textObject.ToString();
+            if (!char.IsLower(text[0]) != uppercaseFirst)
+            {
+                char[] array = text.ToCharArray();
+                text = (uppercaseFirst ? array[0].ToString().ToUpper() : array[0].ToString().ToLower());
+                for (int i = 1; i < array.Count<char>(); i++)
+                {
+                    text += array[i].ToString();
+                }
+            }
+            __result = text;
 
             // Skipping this method
             return false;

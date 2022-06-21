@@ -3,7 +3,7 @@ using Bannerlord.UIExtenderEx.Prefabs2;
 
 namespace ExtendedFamily.Extension
 {
-    [PrefabExtension("EncyclopediaHeroPage", "descendant::GridWidget[@Id='FamilyGrid']")]
+    [PrefabExtension("EncyclopediaHeroPage", "descendant::NavigatableGridWidget[@Id='FamilyGrid']")]
     internal class EncyclopediaFamilyGridExtension : PrefabExtensionInsertPatch
     {
         public override InsertType Type => InsertType.Replace;
